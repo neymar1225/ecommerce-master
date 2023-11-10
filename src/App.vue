@@ -4,7 +4,7 @@
 
   </div>
 </template>
-    <!-- 123   -->
+    <!-- 123     -->
 <script>
 import HelloWorldVue from "./components/HelloWorld.vue";
 export default {
