@@ -20,33 +20,20 @@
       </div>
     </div>
 
-    <div
-      v-for="(item, index) in indexList"
-      :key="index"
-      class="h-100 hover-effect ps-3 pe-3"
-      
-      @mouseover="changeTextColor(item, true)"
-      @mouseout="changeTextColor(item, false)"
-    >
+    <div>
+    <!-- 可以通过循环来遍历 indexList -->
+    <!-- 这里假设 indexList 是你的数据数组 -->
+    <!-- 注意：在 v-for 中使用 :key 时，最好使用一个唯一的值作为 key -->
+    <router-link v-for="(item, index) in indexList" :key="index" :to="'/ss/' + item.name" class="inline-link h-100 hover-effect ps-3 pe-3">
       <div class="w-100" style="height: 10px"></div>
-      <div
-        class="w-100 d-flex justify-content-center align-items-center"
-        style="height: 30px"
-      >
-        <v-icon
-          :name="item.name"
-          style="font-size: 30px; color: #f53082"
-          class="icon"
-        ></v-icon>
+      <div class="w-100 d-flex justify-content-center align-items-center" style="height: 30px">
+        <v-icon :name="item.name" style="font-size: 30px; color: #f53082" class="icon"></v-icon>
       </div>
-      <div
-        class="w-100 d-flex justify-content-center align-items-center "
-        style="height: 30px;font-size:15px;color: #fafafa2f;"
-        :style="{ color: item.textColor }"
-      >
+      <div class="w-100 d-flex justify-content-center align-items-center" style="height: 30px; font-size: 15px; color: #fafafa2f;" :style="{ color: item.textColor }">
         {{ item.inf }}
       </div>
-    </div>
+    </router-link>
+  </div>
   </div>
 </template>
 <script>
@@ -153,5 +140,9 @@ export default {
   opacity: 1;
   // transform: translateY(0);
 }
+.inline-link {
+    display: inline-block;
+    text-decoration:none;
+  }
 </style>
 

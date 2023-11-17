@@ -64,13 +64,13 @@ const routes = [
         }
       },
       {
-        path: 'favorite',
+        path: 'shoucang',
         components: {
           tow: () => import('@/pages/favorite.vue')
         }
       },
       {
-        path: 'userOrder',
+        path: 'dingdan',
         components: {
           tow: () => import('@/pages/userOrder.vue')
         }
@@ -82,7 +82,7 @@ const routes = [
         }
       },
       {
-        path: 'history',
+        path: 'lishi',
         components: {
           tow: () => import('@/pages/history.vue')
         }

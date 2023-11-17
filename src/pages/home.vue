@@ -144,11 +144,10 @@ export default {
       this.nextSlide();
     }, 3000);
 
-    // 在组件挂载后立即获取一次宽度
-    this.handleResize()
-
-    // 监听窗口大小变化，当窗口大小变化时重新获取宽度
+    this.$nextTick(() => {
+    this.handleResize();
     window.addEventListener("resize", this.handleResize);
+  });
   },
 };
 </script>
