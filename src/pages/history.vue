@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="contain1">
-       
+           
     </div>
     <div class="contain2">
       <div class="title_name">
@@ -113,9 +113,7 @@ em{
   margin-right: 10px;
   margin-left: 5px;
 }
-b{
 
-}
 hr{
   width:2px;
   border-width:0;
