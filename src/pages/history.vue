@@ -17,20 +17,20 @@
       <div class="items">
         <div class="item_child">
           <div class="child_img">
-            <img src="../assets/img/1.png" alt="">
+            <img src="../assets/img/垃圾袋.jpg" alt="">
           </div>
           <div class="child_int">
-            <a href="">标题</a>
-            <span>价钱</span>
+            <a href="">美余生活（MY&YOUR） 抽绳垃圾袋抽绳手提式自动收口垃圾袋家用45*50cm【颜色随机】 抽绳款【2卷共30只装】试用</a>
+            <span>￥5.10</span>
           </div>
         </div>
         <div class="item_child">
           <div class="child_img">
-            <img src="../assets/img/1.png" alt="">
+            <img src="../assets/img/脑子.jpg" alt="">
           </div>
           <div class="child_int">
-            <a href="">标题</a>
-            <span>价钱</span>
+            <a href="">爱因斯坦的脑子。付款后自动长到你大脑上。买过的都说好用。</a>
+            <span>￥0.1</span>
           </div>
         </div>
         <div class="item_child">
