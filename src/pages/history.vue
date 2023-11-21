@@ -1,91 +1,91 @@
 <template>
   <div class="main">
-    <div class="contain1">
-           
-    </div>
+    <div class="contain1"></div>
     <div class="contain2">
       <div class="title_name">
         <div class="text">
           <em></em> 
-        我的足迹
-        <b>MY TRACKS</b></div>
+          我的足迹
+          <b>MY TRACKS</b>
+        </div>
         <div class="btn">
-          <button>清空历史记录</button>
+          <button @click="clearHistory">清空历史记录</button>
         </div>
       </div>
       <hr>
       <div class="items">
-        <div class="item_child">
-          <div class="child_img">
-            <img src="../assets/img/垃圾袋.jpg" alt="">
+        <ul style="list-style: none;">
+          <li v-for="product in footprints" :key="product.id">
+            <div class="item_child">
+              <div class="child_img">
+            <img :src="require(`@/assets/img/${product.image}`)" alt="Product Image">
+              </div>
+              <div class="child_int">
+              <a href="">{{ product.name }}</a>
+              <span>价格: {{ product.price }}</span>
+              <p>查看时间: {{ product.viewedAt | formatDate }}</p>
+            </div>
           </div>
-          <div class="child_int">
-            <a href="">美余生活（MY&YOUR） 抽绳垃圾袋抽绳手提式自动收口垃圾袋家用45*50cm【颜色随机】 抽绳款【2卷共30只装】试用</a>
-            <span>￥5.10</span>
-          </div>
-        </div>
-        <div class="item_child">
-          <div class="child_img">
-            <img src="../assets/img/脑子.jpg" alt="">
-          </div>
-          <div class="child_int">
-            <a href="">爱因斯坦的脑子。付款后自动长到你大脑上。买过的都说好用。</a>
-            <span>￥0.1</span>
-          </div>
-        </div>
-        <div class="item_child">
-          <div class="child_img">
-            <img src="../assets/img/1.png" alt="">
-          </div>
-          <div class="child_int">
-            <a href="">标题</a>
-            <span>价钱</span>
-          </div>
-        </div>
-        <div class="item_child">
-          <div class="child_img">
-            <img src="../assets/img/1.png" alt="">
-          </div>
-          <div class="child_int">
-            <a href="">标题</a>
-            <span>价钱</span>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="contain1">
-      
-    </div>
+    <div class="contain1"></div>
   </div>
 </template>
+
 <script>
 import myHead from '@/components/myHead.vue';
-  export default {
-    components:{myHead,},
-    name:"history",
+
+export default {
+  components: { myHead },
+  name: "history",
+  data() {
+    return {
+      footprints: [
+        { id: 1, name: '抽绳垃圾袋抽绳手提式自动收口垃圾袋家用45*50cm抽绳款', image: '垃圾袋.jpg', price: '￥5.10', viewedAt: new Date() },
+        { id: 2, name: '爱因斯坦的脑子。付款后自动长到你大脑上。买过的都说好用。', image: '脑子.jpg', price: '￥0.1', viewedAt: new Date() },
+        { id: 3, name: '创意恶搞奖杯你真牛杯玩偶鲨杯牛芒毛绒玩具抱枕牛啤公仔优趣优品', image: '牛.jpg', price: '￥28.5', viewedAt: new Date() },
+        { id: 4, name: '网红重力3D迷你小手枪1911幼崽大学生解压萝卜枪儿童玩具不可发射', image: '刀.jpg', price: '￥18.5', }
+        // 添加更多足迹商品
+      ],
+      showFootprints: true  // 控制是否显示足迹信息的状态
+    };
+  },
+  methods: {
+    clearHistory() {
+      this.footprints = [];
+      this.showFootprints = false;
+    }
+  },
+  filters: {
+    formatDate(date) {
+      // 自定义日期格式化过滤器
+      const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+      return new Intl.DateTimeFormat('en-US', options).format(date);
+    }
   }
+};
 </script>
+
 
 <style lang="scss" scoped>
 .main{
   margin-top: 50px;
   display: flex;
   width: 100%;
-  height: 100%;
 }
 .contain1{
   width: 20%;
 }
 .contain2{
   text-align: center;
-    width: 60%;
-    display: flex;
-    border: groove 5px rgb(115, 113, 113,0.5);
-    border-radius: 30px;
-    flex-direction: column;
-    flex-wrap: nowrap;
-
-    
+  width: 60%;
+  display: flex;
+  border: groove 5px rgb(115, 113, 113,0.5);
+  border-radius: 30px;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 .title_name{
   display: flex;
@@ -129,6 +129,17 @@ hr{
   border-radius: 15px;
   background-color: rgb(163, 220, 127);
 }
+@media (max-width: 768px) {
+  .contain2 {
+    width: 100%; /* 或者适当调整宽度 */
+  }
+
+  .item_child img {
+    height: 80px; /* 调整图片尺寸 */
+    width: 120px;
+  }
+}
+
 .items{
   margin-left: 20px;
   display: flex;
@@ -149,10 +160,13 @@ hr{
 }
 .child_int{
   margin-left: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+a{
+  text-decoration:none;
+  color: #000;
 }
 </style>
 
